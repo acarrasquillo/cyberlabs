@@ -1,3 +1,8 @@
+<?php
+      if (basename($_SERVER["SCRIPT_FILENAME"], '.php') == "lab1"){
+          header("X-XSS-Protection: 0");
+      }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +20,6 @@
 
     <!-- Custom styles for this template -->
     <link href="bootstrap-3.3.2-dist/css/offcanvas.css" rel="stylesheet">
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
