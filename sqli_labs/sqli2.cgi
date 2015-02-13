@@ -78,15 +78,15 @@ print("""
 </form>""")
 
 if form.has_key("num_estudiante"):
-	# Try to do an injection here with Union to show the data of all students and professors
-	query = """SELECT * FROM User WHERE num_estudiante = "%s" """ % stuNum
+  # Try to do an injection here with Union to show the data of all students and professors
+  query = """SELECT * FROM User WHERE num_estudiante = "%s" """ % stuNum
 
-	c.execute(query)
+  c.execute(query)
 
-	print ("""
-	<p>Your Information:</p>
-	""")
-	print c.fetchall()
+  print ("""
+    <p>Your Information:</p>
+    """)
+  print c.fetchall()
 
 
 print("""
