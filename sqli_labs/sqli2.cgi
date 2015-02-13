@@ -44,7 +44,7 @@ print("""<body>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Cybersecurity Labs</a>
+          <a class="navbar-brand" href="../index.php">Cybersecurity Labs</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -99,10 +99,10 @@ print("""
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="../bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-3.3.2-dist/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="bootstrap-3.3.2-dist/assets/js/offcanvas.js"></script>
+    <script src="../bootstrap-3.3.2-dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../bootstrap-3.3.2-dist/assets/js/offcanvas.js"></script>
   </body>
 </html>
 	""")
