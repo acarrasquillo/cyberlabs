@@ -84,11 +84,19 @@ if form.has_key("username") & form.has_key("password"):
   query = """SELECT * FROM User WHERE username = "%s" AND password = "%s" """ % (user, passw)
 
   c.execute(query)
+  result =  c.fetchall()
 
   print ("""
     <p>Your Information:</p>
     """)
-  print c.fetchall()
+  print """<table class="table table-condensed">"""
+  print """<tr><th>Name</th><th>Username</th><th>Email</th><th>Direction</th><th>Password</th><th>Age</th><th>Student Number</th></tr>"""
+  for e in result:
+    print """<tr>"""
+    for i in range(1,len(e)):
+      print """<td>%s</td>""" % e[i]
+    print """</tr>"""
+  print """</table>"""
 
 
 print("""
