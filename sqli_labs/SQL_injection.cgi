@@ -72,7 +72,7 @@ print("""
  <form action="SQL_injection.cgi" method="post">
 	<div class="input-group">
 		<input type="text" class="form-control" placeholder="username"  name="username" aria-describedby="basic-addon1">
-    <input type="text" class="form-control" placeholder="password"  name="password" aria-describedby="basic-addon1">
+    <input type="password" class="form-control" placeholder="password"  name="password" aria-describedby="basic-addon1">
 		<div class="btn-group">
 			<button type="submit" class="btn btn-default">LogIn</button>
 		</div>
