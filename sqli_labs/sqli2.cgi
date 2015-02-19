@@ -67,6 +67,12 @@ c = db.cursor()
 form = cgi.FieldStorage()
 stuNum = form.getvalue("num_estudiante", "(no student number)")
 
+print """<H3><u>Instructions</u>:</H3>"""
+print """<p><font size="3">The following box asks the user for an input. The developer, again, forgot to sanitize the input. Try to get out the information of all the students by making
+            an injection. Try to hack the web page so that you get the information of all the students and professors.<font></p><br>"""
+
+print """<p><font size="2">Hint: The Student and Professor tables have the same ammount of columns and the same types.</font></p>"""
+
 print("""
  <form action="sqli2.cgi" method="post">
 	<div class="input-group">
@@ -83,6 +89,8 @@ if form.has_key("num_estudiante"):
 
   c.execute(query)
   result = c.fetchall()
+
+  print """<p>The query: SELECT * FROM User WHERE num_estudiante = "<font color="red">%s</font>" """ % stuNum
 
   print ("""
     <p>Your Information:</p>

@@ -19,8 +19,8 @@
           <div class="list-group">
             <a href="lab1.php" class="list-group-item">XSS: Lab 1</a>
             <a href="test.cgi" class="list-group-item">XSS: Lab 2</a>
-            <a href="sqli_labs/sqli2.cgi" class="list-group-item">SQL: Lab 1</a>
-            <a href="sqli_labs/SQL_injection.cgi" class="list-group-item">SQL: Lab 2</a>
+            <a href="sqli_labs/SQL_injection.cgi" class="list-group-item">SQL: Lab 1</a>
+            <a href="sqli_labs/sqli2.cgi" class="list-group-item">SQL: Lab 2</a>
             <!-- <a href="#" class="list-group-item">Lab 4</a>
             <a href="#" class="list-group-item">Lab 5</a>
             <a href="#" class="list-group-item">Lab 6</a>

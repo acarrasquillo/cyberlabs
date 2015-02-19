@@ -68,6 +68,13 @@ form = cgi.FieldStorage()
 user = form.getvalue("username", "(no username)")
 passw = form.getvalue("password", "(no password)")
 
+print """<H3><u>Instructions</u>:</H3>"""
+print """<p><font size="3">The following boxes asks the user for inputs. Unfortunatley the developer of the web page didn't sanitize the input, so
+            the web page is vulnerable to SQL injections. A bad person, <b>NOT YOU GUYS</b>, can use this to get the information of all the
+            students and the professors in the database. Try to get out the information of all the students a SQL Injection.<font></p><br>"""
+
+print """<p><font size="2">Hint: The query is made by 2 parts. To make the query true you have to make both inputs true.<font></p>"""
+
 print("""
  <form action="SQL_injection.cgi" method="post">
 	<div class="input-group">
@@ -83,11 +90,12 @@ if form.has_key("username") & form.has_key("password"):
   # The injection can be made by making username and password true
   query = """SELECT * FROM User WHERE username = "%s" AND password = "%s" """ % (user, passw)
 
+  print """<p>The query: SELECT * FROM User WHERE username = "<font color="red">%s</font>" AND password = "<font color="red">%s</font>"</p>""" % (user, passw)
   c.execute(query)
   result =  c.fetchall()
 
   print ("""
-    <p>Your Information:</p>
+    <p>Your Information: </p>
     """)
   print """<table class="table table-condensed">"""
   print """<tr><th>Name</th><th>Username</th><th>Email</th><th>Direction</th><th>Password</th><th>Age</th><th>Student Number</th></tr>"""
