@@ -87,13 +87,23 @@ print("""
 
 if form.has_key("num_estudiante"):
   # Try to do an injection here with Union to show the data of all students and professors
-  query = """SELECT * FROM User WHERE num_estudiante = "%s" """ % stuNum
+  query = """SELECT * FROM User WHERE num_estudiante = "%s" """
 
-  c.execute(query)
+  c.execute(query, stuNum)
   result = c.fetchall()
 
+  print """<div class="panel panel-danger">
+    <div class="panel-heading">
+    The query:
+    </div>
+    <div class="panel-body">
+      <pre>SELECT * FROM User WHERE num_estudiante = "<font color="red">%s</font>"</pre>
+    </div>
+        
+    </div>""" % stuNum
+
   print ("""
-    <p>Your Information: </p>
+    <p><font size="3">Your Information: </font></p>
     """)
   print """<table class="table table-condensed">"""
   print """<tr><th>Name</th><th>Username</th><th>Email</th><th>Direction</th><th>Password</th><th>Age</th><th>Student Number</th></tr>"""
@@ -103,8 +113,6 @@ if form.has_key("num_estudiante"):
       print """<td>%s</td>""" % e[i]
     print """</tr>"""
   print """</table>"""
-
-  print """<p>The query: SELECT * FROM User WHERE num_estudiante = "<font color="red">%s</font>" """ % stuNum
 
 
 print("""

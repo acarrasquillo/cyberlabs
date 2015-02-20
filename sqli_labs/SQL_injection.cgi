@@ -90,18 +90,27 @@ if form.has_key("username") & form.has_key("password"):
   # The injection can be made by making username and password true
   query = """SELECT * FROM User WHERE username = "%s" AND password = "%s" """ % (user, passw)
 
-  print """<p>The query: SELECT * FROM User WHERE username = "<font color="red">%s</font>" AND password = "<font color="red">%s</font>"</p>""" % (user, passw)
   c.execute(query)
   result =  c.fetchall()
 
+  print """<div class="panel panel-danger">
+    <div class="panel-heading">
+    The query:
+    </div>
+    <div class="panel-body">
+      <pre>SELECT * FROM User WHERE username = "<font color="red">%s</font>" AND password = "<font color="red">%s</font>"</pre>
+    </div>
+        
+    </div>""" % (user, passw)
+
   print ("""
-    <p>Your Information: </p>
+    <p><font size="3">Your Information: </font></p>
     """)
   print """<table class="table table-condensed">"""
   print """<tr><th>Name</th><th>Username</th><th>Email</th><th>Direction</th><th>Password</th><th>Age</th><th>Student Number</th></tr>"""
   for e in result:
     print """<tr>"""
-    for i in range(1,len(e)):
+    for i in range(1,len(e)-1):
       print """<td>%s</td>""" % e[i]
     print """</tr>"""
   print """</table>"""

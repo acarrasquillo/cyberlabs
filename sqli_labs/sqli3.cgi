@@ -89,18 +89,28 @@ if form.has_key("num_estudiante"):
   c.execute(query)
   result = c.fetchall()
 
-  print """<p>The query: SELECT member FROM User WHERE num_estudiante = "<font color="red">%s</font>" """ % stuNum
-  if result[0][0] == 1:
-    query = """SELECT * FROM Essay"""
-    c.execute(query)
-    result = c.fetchall()
-    for e in result:
-      print """<div class="jumbotron">"""
-      print """<h3>%s</h3>""" % e[1]
-      print """<p>%s</p>""" % e[3]
-      print """<p>Author: %s</p>""" % e[2]
-      print """</div>"""
-      print """<br>"""
+  print """<div class="panel panel-danger">
+    <div class="panel-heading">
+    The query:
+    </div>
+    <div class="panel-body">
+      <pre>SELECT member FROM User WHERE num_estudiante = "<font color="red">%s</font>"</pre>
+    </div>
+        
+    </div>""" % stuNum
+
+  if len(result) > 0:
+    if result[0][0] == 1:
+      query = """SELECT * FROM Essay"""
+      c.execute(query)
+      result = c.fetchall()
+      for e in result:
+        print """<div class="jumbotron">"""
+        print """<h3>%s</h3>""" % e[1]
+        print """<p>%s</p>""" % e[3]
+        print """<p>Author: %s</p>""" % e[2]
+        print """</div>"""
+        print """<br>"""
 
 
 print("""
