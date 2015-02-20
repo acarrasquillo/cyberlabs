@@ -71,7 +71,7 @@ passw = form.getvalue("password", "(no password)")
 print """<H3><u>Instructions</u>:</H3>"""
 print """<p><font size="3">The following boxes asks the user for inputs. Unfortunatley the developer of the web page didn't sanitize the input, so
             the web page is vulnerable to SQL injections. A bad person, <b>NOT YOU GUYS</b>, can use this to get the information of all the
-            students and the professors in the database. Try to get out the information of all the students a SQL Injection.<font></p><br>"""
+            students and the professors in the database. Try to get out the information of all the students with a SQL Injection.<font></p><br>"""
 
 print """<p><font size="2">Hint: The query is made by 2 parts. To make the query true you have to make both inputs true.<font></p>"""
 

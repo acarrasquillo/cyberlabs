@@ -11,7 +11,7 @@ print """Content-Type: text/html"""
 print
 
 print("""
-	<html lang="en">
+  <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +55,7 @@ print("""<body>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
-	""")
+  """)
 
 # First we create a connection object (db) that represents the database
 db = MySQLdb.connect("localhost", "jdelavega", "6TsseuXp", "atackpr_sqlin")
@@ -68,43 +68,39 @@ form = cgi.FieldStorage()
 stuNum = form.getvalue("num_estudiante", "(no student number)")
 
 print """<H3><u>Instructions</u>:</H3>"""
-print """<p><font size="3">The following box asks the user for an input. The developer, again, forgot to sanitize the inputs.
-          We need to show him that input validation is important, so I have a task for you. You need to get the information of
-          all the students and professors."""
-
-print """<p><font size="2">Hint: The Professor and the User table have the same amount of columns and the same types maybe you can
-          make a compund query.<font></p>"""
+print """<p><font size="3">The following box asks the user for an input. Only students can that are members of this club can see the 
+            essays in this page. Try to insert a new user in the database with the member value set to 1 so that you have access to the 
+            essays."""
 
 print("""
- <form action="sqli2.cgi" method="post">
-	<div class="input-group">
-		<input type="text" class="form-control" placeholder="sudent number"  name="num_estudiante" aria-describedby="basic-addon1">
-		<span class="input-group-btn">
-			<button class="btn btn-default" type="submit">LogIn</button>
-		</span>
-	</div>
+ <form action="sqli3.cgi" method="post">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="sudent number"  name="num_estudiante" aria-describedby="basic-addon1">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">LogIn</button>
+    </span>
+  </div>
 </form>""")
 
 if form.has_key("num_estudiante"):
   # Try to do an injection here with Union to show the data of all students and professors
-  query = """SELECT * FROM User WHERE num_estudiante = "%s" """ % stuNum
+  query = """SELECT member FROM User WHERE num_estudiante = "%s" """ % stuNum
 
   c.execute(query)
   result = c.fetchall()
 
-  print ("""
-    <p>Your Information: </p>
-    """)
-  print """<table class="table table-condensed">"""
-  print """<tr><th>Name</th><th>Username</th><th>Email</th><th>Direction</th><th>Password</th><th>Age</th><th>Student Number</th></tr>"""
-  for e in result:
-    print """<tr>"""
-    for i in range(1,len(e)-1):
-      print """<td>%s</td>""" % e[i]
-    print """</tr>"""
-  print """</table>"""
-
-  print """<p>The query: SELECT * FROM User WHERE num_estudiante = "<font color="red">%s</font>" """ % stuNum
+  print """<p>The query: SELECT member FROM User WHERE num_estudiante = "<font color="red">%s</font>" """ % stuNum
+  if result[0][0] == 1:
+    query = """SELECT * FROM Essay"""
+    c.execute(query)
+    result = c.fetchall()
+    for e in result:
+      print """<div class="jumbotron">"""
+      print """<h3>%s</h3>""" % e[1]
+      print """<p>%s</p>""" % e[3]
+      print """<p>Author: %s</p>""" % e[2]
+      print """</div>"""
+      print """<br>"""
 
 
 print("""
@@ -123,6 +119,6 @@ print("""
     <script src="../bootstrap-3.3.2-dist/assets/js/offcanvas.js"></script>
   </body>
 </html>
-	""")
+  """)
 
 c.close()
