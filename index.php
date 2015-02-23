@@ -17,8 +17,9 @@
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="lab1.php" class="list-group-item">XSS: Lab 1</a>
-            <a href="test.cgi" class="list-group-item">XSS: Lab 2</a>
+            <a href="lab1.php" class="list-group-item">XSS: Between tags</a>
+            <a href="test.cgi" class="list-group-item">XSS: In attributes</a>
+            <a href="xss3.cgi" class="list-group-item">XSS: On Javascript</a>
             <a href="sqli_labs/SQL_injection.cgi" class="list-group-item">SQL: Lab 1</a>
             <a href="sqli_labs/sqli2.cgi" class="list-group-item">SQL: Lab 2</a>
             <a href="sqli_labs/sqli3.cgi" class="list-group-item">SQL: Lab 3</a>
