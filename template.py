@@ -25,7 +25,7 @@ def header():
 	    <![endif]-->
 	  </head>
 	  <body>
-	     <div class="container">
+	     <div class="container" id="bodycontainer">
 	"""
 
 def navbar():
