@@ -28,7 +28,7 @@ stuNum = form.getvalue("num_estudiante", "(no student number)")
 print """<H3><u>Instructions</u>:</H3>"""
 print """<p><font size="3">The following box asks the user for an input. Only students can that are members of this club can see the 
             essays in this page. Try to insert a new user in the database with the member value set to 1 so that you have access to the 
-            essays."""
+            essays. Once you insert a user try again using that user."""
 
 print("""
  <form action="sqli3.cgi" method="post">
@@ -73,4 +73,7 @@ if form.has_key("num_estudiante"):
 
 print template.footer()
 
-c.close()
+try:
+  c.close()
+except:
+  pass
