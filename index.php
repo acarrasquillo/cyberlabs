@@ -20,6 +20,7 @@
             <a href="lab1.php" class="list-group-item">XSS: Between tags</a>
             <a href="test.cgi" class="list-group-item">XSS: In attributes</a>
             <a href="xss3.cgi" class="list-group-item">XSS: On Javascript</a>
+            <a href="xss4.cgi" class="list-group-item">XSS: On CSS</a>
             <a href="SQL_injection.cgi" class="list-group-item">SQL: Logical operations</a>
             <a href="sqli2.cgi" class="list-group-item">SQL: UNION</a>
             <a href="sqli3.cgi" class="list-group-item">SQL: INSERT</a>
