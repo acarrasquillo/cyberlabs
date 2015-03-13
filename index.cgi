@@ -28,9 +28,9 @@ print """
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item">Homeworks</a>
-            <!-- <a href="#" class="list-group-item">Lab 5</a>
-            <a href="#" class="list-group-item">Lab 6</a>
+            <a href="homeworks.cgi" class="list-group-item">Homeworks Insecure</a>
+            <a href="homeworks2.cgi" class="list-group-item">Homeworks Secure</a>
+            <!-- <a href="#" class="list-group-item">Lab 6</a>
             <a href="#" class="list-group-item">Lab 7</a>
             <a href="#" class="list-group-item">Lab 8</a>
             <a href="#" class="list-group-item">Lab 9</a>
@@ -39,4 +39,9 @@ print """
         </div><!--/.sidebar-offcanvas-->
      </div><!--/row-->"""
 
+print ("""
+  <script>
+    document.getElementById("home").className = "active";
+  </script>
+  """)
 print template.footer()
